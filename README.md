@@ -74,3 +74,42 @@ Fichier :
 ArtificialInquiries_numEx/
 ├── README.md
 └── diagram_class.md
+
+
+## Modélisation avec Omeka S
+
+Le projet utilise Omeka S pour représenter les classes,
+les propriétés et les relations entre les ressources.
+
+- Vocabulaire RDF personnalisé au format Turtle
+- 7 Resource Templates exportés en JSON
+- 12 items de test avec des relations RDF
+- Export SQL anonymisé
+
+## Technologies utilisées
+
+| Technologie | Utilisation |
+|---|---|
+| Omeka S | Gestion des ressources sémantiques |
+| RDF / Turtle | Vocabulaire et propriétés |
+| Mermaid | Diagramme de classes |
+| JSON | Export des modèles de ressources |
+| MySQL | Base de données |
+| MAMP | Serveur local |
+| Markdown | Documentation |
+| Git / GitHub | Versionnement et publication |
+
+## Fichiers du projet
+
+- `diagram_class.md` : diagramme de classes
+- `artificial_inquiries.ttl` : vocabulaire RDF
+- `resource-template/` : 7 modèles JSON
+- `omk.sql` : export SQL anonymisé
+
+## Résultat
+
+Le projet relie la modélisation conceptuelle à une
+implémentation sémantique dans Omeka S.
+
+L'import SQL a été testé avec succès dans MySQL.
+La restauration complète d'Omeka S reste à vérifier.
