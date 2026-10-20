@@ -1,0 +1,8 @@
+
+# macOS
+.DS_Store
+
+# Données locales et sauvegardes
+*.sql
+*.sql.gz
+.env

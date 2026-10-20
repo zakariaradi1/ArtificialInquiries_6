@@ -1,0 +1,153 @@
+@prefix artinq: <https://humanum-p8.fr/omk_artificialinquiries/onto/artinq#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix o: <http://omeka.org/s/vocabs/o#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+artinq: a owl:Ontology ;
+    dcterms:title "Artificial Inquiries" ;
+    dcterms:description "Exercice 6 — Design Your AI Test. Thème : les outils de coordination et d’orchestration d’agents IA."@fr .
+
+# CLASSES
+
+artinq:Task a rdfs:Class ;
+    rdfs:label "Tâche"@fr ;
+    rdfs:comment "Tâche professionnelle identifiée dans l’exercice 6."@fr ;
+    rdfs:subClassOf o:Resource ;
+    vs:term_status "experimental" .
+
+artinq:CoreTask a rdfs:Class ;
+    rdfs:label "Tâche centrale sélectionnée"@fr ;
+    rdfs:comment "Sélection d’une tâche parmi les quatre tâches centrales, avec les décisions de délégation."@fr ;
+    rdfs:subClassOf o:Resource ;
+    vs:term_status "experimental" .
+
+artinq:Category a rdfs:Class ;
+    rdfs:label "Catégorie de tâche"@fr ;
+    rdfs:comment "Valeurs : BUSINESS, PLEASURE, BUSINESS_PLEASURE."@fr ;
+    rdfs:subClassOf o:Resource ;
+    vs:term_status "experimental" .
+
+artinq:TaskAssessment a rdfs:Class ;
+    rdfs:label "Évaluation des enjeux de la tâche"@fr ;
+    rdfs:subClassOf o:Resource ;
+    vs:term_status "experimental" .
+
+artinq:ResultCriteria a rdfs:Class ;
+    rdfs:label "Critères de résultat"@fr ;
+    rdfs:subClassOf o:Resource ;
+    vs:term_status "experimental" .
+
+artinq:LLMExpectation a rdfs:Class ;
+    rdfs:label "Attente envers le LLM"@fr ;
+    rdfs:subClassOf o:Resource ;
+    vs:term_status "experimental" .
+
+artinq:ExpectationLevel a rdfs:Class ;
+    rdfs:label "Niveau de performance attendu"@fr ;
+    rdfs:comment "Valeurs : TERRIBLE, PRETTY_BAD, GOOD_ENOUGH, EXCELLENT."@fr ;
+    rdfs:subClassOf o:Resource ;
+    vs:term_status "experimental" .
+
+# ATTRIBUTS
+# Les titres, descriptions et identifiants utilisent les propriétés
+# existantes dcterms:title, dcterms:description et dcterms:identifier.
+
+artinq:position a rdf:Property ;
+    rdfs:label "Position dans les quatre tâches"@fr ;
+    rdfs:comment "Nombre de 1 à 4."@fr ;
+    rdfs:domain artinq:CoreTask ;
+    vs:term_status "experimental" .
+
+artinq:delegation a rdf:Property ;
+    rdfs:label "Délégation envisagée"@fr ;
+    rdfs:comment "Valeur : true ou false."@fr ;
+    rdfs:domain artinq:CoreTask ;
+    vs:term_status "experimental" .
+
+artinq:completeTrust a rdf:Property ;
+    rdfs:label "Confiance complète"@fr ;
+    rdfs:comment "Valeur : true ou false."@fr ;
+    rdfs:domain artinq:CoreTask ;
+    vs:term_status "experimental" .
+
+artinq:hesitation a rdf:Property ;
+    rdfs:label "Hésitation à déléguer"@fr ;
+    rdfs:comment "Valeur : true ou false."@fr ;
+    rdfs:domain artinq:CoreTask ;
+    vs:term_status "experimental" .
+
+artinq:reasoning a rdf:Property ;
+    rdfs:label "Justification du choix"@fr ;
+    rdfs:domain artinq:CoreTask ;
+    vs:term_status "experimental" .
+
+artinq:taskFit a rdf:Property ;
+    rdfs:label "Adéquation de la tâche au test"@fr ;
+    rdfs:domain artinq:TaskAssessment ;
+    vs:term_status "experimental" .
+
+artinq:professionalRelevance a rdf:Property ;
+    rdfs:label "Pertinence professionnelle"@fr ;
+    rdfs:domain artinq:TaskAssessment ;
+    vs:term_status "experimental" .
+
+artinq:personalOutcome a rdf:Property ;
+    rdfs:label "Conséquence personnelle"@fr ;
+    rdfs:domain artinq:TaskAssessment ;
+    vs:term_status "experimental" .
+
+artinq:failure a rdf:Property ;
+    rdfs:label "Critère d’échec"@fr ;
+    rdfs:domain artinq:ResultCriteria ;
+    vs:term_status "experimental" .
+
+artinq:goodEnough a rdf:Property ;
+    rdfs:label "Critère de résultat acceptable"@fr ;
+    rdfs:domain artinq:ResultCriteria ;
+    vs:term_status "experimental" .
+
+artinq:success a rdf:Property ;
+    rdfs:label "Critère de réussite"@fr ;
+    rdfs:domain artinq:ResultCriteria ;
+    vs:term_status "experimental" .
+
+# RELATIONS ENTRE LES RESSOURCES
+
+artinq:selectsTask a rdf:Property ;
+    rdfs:label "Sélectionne la tâche"@fr ;
+    rdfs:domain artinq:CoreTask ;
+    rdfs:range artinq:Task ;
+    vs:term_status "experimental" .
+
+artinq:category a rdf:Property ;
+    rdfs:label "Appartient à la catégorie"@fr ;
+    rdfs:domain artinq:Task ;
+    rdfs:range artinq:Category ;
+    vs:term_status "experimental" .
+
+artinq:hasAssessment a rdf:Property ;
+    rdfs:label "A pour évaluation"@fr ;
+    rdfs:domain artinq:Task ;
+    rdfs:range artinq:TaskAssessment ;
+    vs:term_status "experimental" .
+
+artinq:hasResultCriteria a rdf:Property ;
+    rdfs:label "Définit les critères de résultat"@fr ;
+    rdfs:domain artinq:TaskAssessment ;
+    rdfs:range artinq:ResultCriteria ;
+    vs:term_status "experimental" .
+
+artinq:hasLLMExpectation a rdf:Property ;
+    rdfs:label "A pour attente envers le LLM"@fr ;
+    rdfs:domain artinq:TaskAssessment ;
+    rdfs:range artinq:LLMExpectation ;
+    vs:term_status "experimental" .
+
+artinq:expectedPerformance a rdf:Property ;
+    rdfs:label "A pour niveau de performance attendu"@fr ;
+    rdfs:domain artinq:LLMExpectation ;
+    rdfs:range artinq:ExpectationLevel ;
+    vs:term_status "experimental" .
