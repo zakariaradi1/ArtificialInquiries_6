@@ -156,3 +156,15 @@ Le backend PHP et Omeka S sont hébergés sur InfinityFree. Les identifiants MyS
 
 Le tableau de bord Omeka S et les 12 ressources ont été observés sur l’instance Cloud ; une session administrateur et une demande refusée ont été observées dans l’interface. Le fonctionnement complet des opérations approuvées et les éventuelles connexions CAS, GitHub ou Google doivent être validés séparément avant de les déclarer opérationnels.
 
+
+## Utilisation et déploiement de la démonstration
+
+L'application est accessible ici : https://artificialinquiries.42web.io/omeka-s-cloud/response.html
+
+**Fonctionnement :** le visiteur crée un compte et se connecte. Il peut consulter les ressources RDF et soumettre une demande de création, modification ou suppression. La demande reste en attente jusqu'à validation ou refus par un administrateur. Le propriétaire peut aussi gérer les rôles administrateurs.
+
+**Architecture :** `response.html` (interface) → `server/api.php` (authentification, sessions, autorisations et modération) → MySQL (utilisateurs et demandes) et API Omeka S (ressources sémantiques).
+
+**Installation :** Omeka S et le backend nécessitent un hébergement PHP/MySQL, ici InfinityFree. Déposer l'interface et le backend sur le serveur et renseigner la configuration privée du serveur. Ne jamais publier `server/config.php`, les identifiants MySQL, les clés API ou les mots de passe sur GitHub. GitHub Pages seul ne peut pas exécuter PHP.
+
+**Démonstration :** https://artificialinquiries.42web.io/omeka-s-cloud/response.html
