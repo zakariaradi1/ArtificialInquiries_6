@@ -165,6 +165,6 @@ L'application est accessible ici : https://artificialinquiries.42web.io/omeka-s-
 
 **Architecture :** `response.html` (interface) → `server/api.php` (authentification, sessions, autorisations et modération) → MySQL (utilisateurs et demandes) et API Omeka S (ressources sémantiques).
 
-**Installation :** Omeka S et le backend nécessitent un hébergement PHP/MySQL, ici InfinityFree. Déposer l'interface et le backend sur le serveur et renseigner la configuration privée du serveur. Ne jamais publier `server/config.php`, les identifiants MySQL, les clés API ou les mots de passe sur GitHub. GitHub Pages seul ne peut pas exécuter PHP.
+**Installation :** Omeka S et le backend nécessitent un hébergement PHP/MySQL, ici InfinityFree. Déposer l'interface et le backend sur le serveur et renseigner la configuration privée du serveur.
 
 **Démonstration :** https://artificialinquiries.42web.io/omeka-s-cloud/response.html
