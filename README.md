@@ -112,4 +112,47 @@ Le projet relie la modélisation conceptuelle à une
 implémentation sémantique dans Omeka S.
 
 L'import SQL a été testé avec succès dans MySQL.
-La restauration complète d'Omeka S reste à vérifier.
+La restauration d'Omeka S sur l'hébergement Cloud a été réalisée ; 12 ressources sont visibles dans le tableau de bord.
+
+
+## Ex6d — Application web Omeka S
+
+**Thème :** Les outils de coordination et d’orchestration d’agents IA.
+
+### Démonstration en ligne
+
+- [Interface web Ex6](https://artificialinquiries.42web.io/omeka-s-cloud/response.html)
+- [Omeka S (administration)](https://artificialinquiries.42web.io/omeka-s-cloud/admin)
+
+L’application repose sur **Omeka S 4.2.1**, un vocabulaire RDF personnalisé, **7 modèles de ressources** et **12 ressources de démonstration**. Les relations relient notamment les tâches, catégories, évaluations, critères et niveaux d’attente.
+
+### Fonctionnalités
+
+- Inscription autonome et authentification locale par session PHP.
+- Trois rôles : utilisateur, administrateur et propriétaire (super-administrateur).
+- Le propriétaire seul peut attribuer ou retirer le rôle administrateur.
+- Consultation des ressources après connexion.
+- Les demandes de création, modification et suppression soumises par les utilisateurs sont placées **en attente** jusqu’à acceptation ou refus par un administrateur.
+- Interface de consultation avec recherche et filtrage par classe RDF.
+
+### Architecture
+
+```text
+Navigateur (response.html)
+    │
+    ▼
+Backend PHP (server/api.php) — sessions, rôles, demandes et validation
+    │
+    ├── MySQL — utilisateurs et demandes
+    │
+    └── API Omeka S — ressources et relations RDF
+```
+
+### Déploiement et confidentialité
+
+Le backend PHP et Omeka S sont hébergés sur InfinityFree. Les identifiants MySQL, clés API, mots de passe et fichiers de configuration privés **ne doivent jamais être publiés sur GitHub ou GitHub Pages**. L’interface statique seule ne remplace pas l’authentification côté serveur. Les ressources Omeka non publiques ne doivent être servies qu’après contrôle de session et de droits.
+
+### État de la démonstration
+
+Le tableau de bord Omeka S et les 12 ressources ont été observés sur l’instance Cloud ; une session administrateur et une demande refusée ont été observées dans l’interface. Le fonctionnement complet des opérations approuvées et les éventuelles connexions CAS, GitHub ou Google doivent être validés séparément avant de les déclarer opérationnels.
+
