@@ -6,3 +6,9 @@
 *.sql
 *.sql.gz
 .env
+
+# Secrets serveur Ex6
+server/config.php
+**/server/config.php
+*.log
+*.bak
